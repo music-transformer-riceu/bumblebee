@@ -1,0 +1,18 @@
+[project]
+name = "bumblebee"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "aidcol",email = "aidancolon20@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<3.12"
+dependencies = [
+    "musiclang-predict (>=1.2.0,<2.0.0)",
+    "numpy (==1.26.4)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
