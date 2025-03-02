@@ -8,7 +8,8 @@ class MaestroDataset:
 
     def get_all_midi_files(self):
         """
-        - Output: python list of all midi files
+        Output:
+        - A Python list containing file paths to the midi files
         """
         files = []
         if os.path.exists(self.data_dir):
@@ -24,27 +25,15 @@ class MaestroDataset:
             print(f"Path not found: {self.path}")
             return []
     
-    def _get_split_files(self, split):
+    def get_split_files(self, split):
         """
-        Helper function to get files for a specific split
+        Retrieves midi files for a specific split
+
+        Input:
+        - split: "test", "validation", or "train"
+
+        Output:
+        - A Python list containing file paths to the midi files
         """
         split_files = self.df[self.df['split'] == split]['midi_filename'].tolist()
         return [os.path.join(self.data_dir, f) for f in split_files]
-    
-    def get_train_midi_files(self):
-        """
-        - Output: List of train split midi files with full paths
-        """
-        return self._get_split_files("train")
-
-    def get_validation_midi_files(self):
-        """
-        - Output: List of validation split midi files with full paths
-        """
-        return self._get_split_files("validation")
-
-    def get_test_midi_files(self):
-        """
-        - Output: List of test split midi files with full paths
-        """
-        return self._get_split_files("test")
